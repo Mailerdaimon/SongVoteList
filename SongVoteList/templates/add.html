@@ -1,0 +1,51 @@
+$def with (track,error)
+<html>
+<head>
+<title>Spotify Party Playlist</title>
+<style type="text/css">
+#box {
+border-width: 1px; 
+border-style: dashed; 
+width: 500px;
+margin-left:auto;
+margin-right:auto;
+padding: 10px;
+background-color:#FFFFFF;
+}
+
+#song {
+border-width: 1px; 
+border-style: dashed; 
+width: 500;
+margin-left:auto;
+margin-right:auto;
+padding: 10px;
+background-color:#FFFFFF;
+}
+#text { 1.5em Times; }
+#bold { font:bold 1.5em Times; }
+#italic { font:italic 1.5em Times; }
+#big { font:1.8em Times; }
+</style>
+</head>
+<body background="../images/back.png">
+	<div id="box">		
+	<p><img src="../images/logo.jpg" alt="Logo"></p>
+	</div>
+	<br>
+	<div id="box">
+	$if error:
+		<span id="big">Error: You can only vote once per Song! </span>
+	$else:
+		$if track:
+			<span id="big">Voted for Song </span>
+			<br><br>
+			<span id="bold">$track['name'] </span>
+			<br>
+			<span id="italic">$track['artist']['name']</span>
+	</div>
+	<br>
+	<div id="box">
+		<span id="big"><a href="/">Return</a></span>
+	</div>
+</body>	

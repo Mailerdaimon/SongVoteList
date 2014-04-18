@@ -1,0 +1,84 @@
+$def with (curTrack, queue)
+<html>
+<head>
+<title>Spotify Party Playlist</title>
+<script type="text/JavaScript">
+<!--
+function timedRefresh(timeoutPeriod) {
+	setTimeout("location.reload(true);",timeoutPeriod);
+}
+//   -->
+</script>
+<style type="text/css">
+#box {
+border-width: 1px; 
+border-style: dashed; 
+width: 500px;
+margin-left:auto;
+margin-right:auto;
+padding: 10px;
+background-color:#FFFFFF;
+}
+
+#song {
+border-width: 1px; 
+border-style: dashed; 
+width: 500;
+margin-left:auto;
+margin-right:auto;
+padding: 10px;
+background-color:#FFFFFF;
+}
+#text { 1.5em Times; }
+#bold { font:bold 1.5em Times; }
+#italic { font:italic 1.5em Times; }
+#big { font:1.8em Times; }
+ 
+</style>
+</head>
+
+<body background="images/back.png" onload="JavaScript:timedRefresh(15000);">
+	<div id="box">		
+	<p><img src="images/logo.jpg" alt="Logo"></p>
+	</div>
+	<br>
+	<div id="box">
+		<a href="/search/"><span id="big"><img src="images/search.png"> Search for a Song!</span></a>
+	</div>
+	<br>
+	
+	$if curTrack:
+		<div id="box">
+		<span id="big">Playing:</span>
+		<br><br>
+		<span id="bold">$curTrack['name']</span>
+		<br>
+		<span id="italic">$curTrack['artist']['name']</span>
+		</div>
+	<br>
+	<div id="box">
+		<span id="big">Upcoming Songs:</span>
+	</div>
+	<br>
+	$if queue:
+		$for song in queue:
+			<div id="song">
+			<table>
+				$if loop.first:
+					<td width="50"><img src="images/next.png"></td>
+				$else:
+					<td width="50"><img src="images/note.png"></td>
+					
+				<td width="600">
+					<span id="bold">$song['name']</span>
+					<br>
+					<span id="italic">$song['artist']['name']</span>
+				</td>
+				<td width="50"><span id="bold">$song['count']</span></td>
+				<td width="100"><a href=/add/$song['href']><img src="images/up.jpg"></a></td>	
+			</table>
+			</div>		
+			<br>
+		</table>
+	</div>	
+</body>	
