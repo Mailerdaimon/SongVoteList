@@ -18,7 +18,7 @@ How To Use
 ============
 
 * Run 'server.py' 
-* connect via a webbrower to: http://localhost:8080/
+* connect via a webbrower to: http://localhost:8080/ or http://yourcomputername:8080/
 * start adding Songs :)
 
 Legal Notice
